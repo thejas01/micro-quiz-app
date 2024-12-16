@@ -37,10 +37,10 @@ public class QuestionController {
         return  questionService.addQuestion(question);
     }
 
+   
     @GetMapping("generate")
     public ResponseEntity<List<Integer>> getQuestionsForQuiz
             (@RequestParam String categoryName, @RequestParam Integer numQuestions ){
-                System.out.println(environment.getProperty("local.server.port"));
         return questionService.getQuestionsForQuiz(categoryName, numQuestions);
     }
 
