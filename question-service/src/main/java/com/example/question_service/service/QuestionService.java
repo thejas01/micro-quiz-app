@@ -49,15 +49,11 @@ public class QuestionService {
         return new ResponseEntity<>("success",HttpStatus.OK);
     }
 
+   
     public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, Integer numQuestions) {
-        // List<Integer> questions = questionDao.findRandomQuestionsByCategory(categoryName, numQuestions);
-        // return new ResponseEntity<>(questions, HttpStatus.OK);
-
-        List<Question> questions = questionDao.findRandomQuestionsByCategory(categoryName, numQuestions);
-        return new ResponseEntity<>(questions.stream().map(Question::getId).toList(), HttpStatus.OK);
-        
+        List<Integer> questions = questionDao.findRandomQuestionsByCategory(categoryName, numQuestions);
+        return new ResponseEntity<>(questions, HttpStatus.OK);
     }
-
     public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(List<Integer> questionIds) {
         List<QuestionWrapper> wrappers = new ArrayList<>();
         List<Question> questions = new ArrayList<>();
