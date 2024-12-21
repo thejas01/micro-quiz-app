@@ -41,6 +41,7 @@ public class QuestionController {
     @GetMapping("generate")
     public ResponseEntity<List<Integer>> getQuestionsForQuiz
             (@RequestParam String categoryName, @RequestParam Integer numQuestions ){
+                System.out.println("Received: categoryName=" + categoryName + ", numQuestions=" + numQuestions);
         return questionService.getQuestionsForQuiz(categoryName, numQuestions);
     }
 
@@ -60,7 +61,6 @@ public class QuestionController {
     public ResponseEntity<String> deleteQuestion(@PathVariable Integer id){
         return questionService.deleteQuestion(id);
     }
-
 
     // generate
     // getQuestions (questionid)
