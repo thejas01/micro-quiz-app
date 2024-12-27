@@ -30,6 +30,8 @@ public class QuizController {
 
     @PostMapping("get/{id}")
     public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id){
+
+        System.out.println("Received request for quiz id: " + id);
         return quizService.getQuizQuestions(id);
     }
 
